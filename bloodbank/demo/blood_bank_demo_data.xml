@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="blood.bank" id="blood_bank_model_demo" >
+            <field name="name">ABC</field>
+        </record>
+       <record model="blood.bank" id="blood_bank_model_demo1" >
+             <field name="name">XYZ</field>
+        </record>
+        <record model="blood.bank" id="blood_bank_model_demo2" >
+            <field name="name">PQR</field>
+       </record>
+    </data>
+</odoo>

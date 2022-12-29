@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--  property actions -->
+        <record id="employee_info_model_action" model="ir.actions.act_window">
+            <field name="name">Employee Information</field>
+            <field name="res_model">employee.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+            <!-- tree view -->
+        <record id="employee_info_list_view" model="ir.ui.view">
+            <field name="name">Employee Info List view</field>
+            <field name="model">employee.info</field>
+            <field name="arch" type="xml">
+                <tree string= "Employee List">
+                    <field name="name" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+     <!-- form view  -->
+    <record id="employee_info_form_view" model="ir.ui.view">
+        <field name="name">Employee info form view</field>
+        <field name="model">employee.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet> 
+                    <label for="name" string="Name" />
+                        <group>
+                            <h1><field name="name" style="width:800%"/></h1>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo> 

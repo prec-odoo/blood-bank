@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--  property actions -->
+        <record id="doctor_info_model_action" model="ir.actions.act_window">
+            <field name="name">Doctor Information</field>
+            <field name="res_model">doctor.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+
+            <!-- tree view -->
+        <record id="doctor_info_list_view" model="ir.ui.view">
+            <field name="name">Doctor Info List view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <tree string= "Doctor List">
+                    <field name="name" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+     <!-- form view  -->
+    <record id="doctor_info_form_view" model="ir.ui.view">
+        <field name="name">Doctor info form view</field>
+        <field name="model">doctor.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet> 
+                    <label for="name" string="Name" />
+                        <group>
+                            <h1><field name="name" style="width:800%"/></h1>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo> 

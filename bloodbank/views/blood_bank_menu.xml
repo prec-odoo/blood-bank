@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="blood_bank_menu_root" name="Blood Bank">
+        <menuitem id="bbank_first_level_menu" name="Home">
+            <menuitem id="bbank_model_menu_action" action="blood_bank_model_action"/>
+        </menuitem>
+        <menuitem id="bbank_second_level_menu" name="Information">
+            <menuitem id="bbank_model_menu_action2" action="doctor_info_model_action"/>
+            <menuitem id="bbank_model_menu_action3" action="employee_info_model_action"/>
+        </menuitem>
+    </menuitem>   
+</odoo>

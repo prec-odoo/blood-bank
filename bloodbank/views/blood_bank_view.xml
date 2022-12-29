@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+                <!-- action -->
         <record id="blood_bank_model_action" model="ir.actions.act_window">
-            <field name="name">Details</field>
+            <field name="name">Donor Details</field>
             <field name="res_model">blood.bank</field>
             <field name="view_mode">tree,form</field>
         </record> 
-        <menuitem id="bbank_menu_root" name="Blood bank">
-            <menuitem id="bbank_first_level_menu" name="Settings">
-                <menuitem id="bbank_menu_action" action="blood_bank_model_action"/>
-            </menuitem>
-        </menuitem>
     </data>
             <!-- tree view -->
         <record id="real_estate_list_view" model="ir.ui.view">
@@ -19,16 +15,40 @@
             <field name="arch" type="xml">
                 <tree string= "Blood Bank">
                     <field name="name" optional="show"/>
-                    <field name="date" optional="show"/>
+                    <field name="availability_date" optional="show"/>
                 </tree>
             </field>
         </record>
-<!--         
+            <!-- search, filter, group by -->
+        <record id="blood_bank_search" model="ir.ui.view">
+            <field name="name">blood.bank.search</field>
+            <field name="model">blood.bank</field>
+            <field name="arch" type="xml">
+                <search string="Blood Bank">
+                    <field name="name" string="Title" />
+                    <field name="availability_date"/>
+                    <field name="contact"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="blood_group"/>
+                    <field name="bag_number"/>
+                    <separator/>
+                    <filter string="Available Blood" name="available" domain="['|',('state', '=', 'new'),('state', '=', 'available')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Blood group" name="blood_group" context="{'group_by':'blood_group'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+                <!-- form view -->
         <record id="blood_bank_form_view" model="ir.ui.view">
             <field name="name">Blood bank form view</field>
             <field name="model">blood.bank</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="state" widget="statusbar" options = "{'clickable' : '1'}"/>
+                    </header>
                     <sheet> 
                         <label for="name" string="Name" />
                             <group>
@@ -36,60 +56,62 @@
                             </group>
                         <group>
                             <group>
-                                <field name="property_type_id"/>
+                                <field name="availability_date"/>
                             </group>
                             <group>
-                                <field name="date_availability"/>
+                                <field name="gender"/>
                             </group>
                         </group>
                         <group>
                             <group>
-                                <field name="expected_price"/>
+                                <field name="bdate"/>
                             </group>
                             <group>
-                                <field name="selling_price"/>
+                                <field name="age"/>
                             </group>
-                        </group>                        
+                        </group>
+                        <group>
+                            <group>
+                                <field name="contact"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="address"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </group>  
+                            <!-- notebook -->
                         <notebook>
-                            <page string="Description">
-                                    <group>
-                                        <field name="postcode"/>
-                                    </group>
-                                    <group>
-                                        <field name="bedrooms"/>
-                                    </group>
-                                    <group>
-                                        <field name="living_area"/>
-                                    </group>
-                                    <group>
-                                        <field name="facades"/>
-                                    </group>
-                            </page>                              
-                            <page string="Garden">
+                            <page string="Blood Details">
                                 <group>
-                                    <field name="garage"/>
+                                    <field name="blood_group"/>
                                 </group>
+                                    <group>
+                                        <field name="bag_number"/>
+                                    </group>
+                                    <group>
+                                        <field name="quantity"/>
+                                    </group>
+                            </page>
+                            <page string="Assigned Doctor">
                                 <group>
-                                    <field name="garden"/>
-                                </group>
-                                <group>
-                                    <field name="garden_area"/>
-                                </group>
-                                <group>
-                                    <field name="garden_orientation"/>
+                                    <field name="doctor_info_id"/>
                                 </group>
                             </page>
-                            <page string="Other Info">
+                            <page string="Assigned Employee">
                                 <group>
-                                    <field name="buyer_id"/>
-                                </group>
-                                <group>
-                                    <field name="salesperson_id"/>
+                                    <field name="employee_info_id"/>
                                 </group>
                             </page>
                         </notebook>
                     </sheet>
                 </form>
             </field>
-        </record> -->
+        </record>
 </odoo>
