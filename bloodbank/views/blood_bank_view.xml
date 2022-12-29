@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="blood_bank_model_action" model="ir.actions.act_window">
+            <field name="name">Details</field>
+            <field name="res_model">blood.bank</field>
+            <field name="view_mode">tree,form</field>
+        </record> 
+        <menuitem id="bbank_menu_root" name="Blood bank">
+            <menuitem id="bbank_first_level_menu" name="Settings">
+                <menuitem id="bbank_menu_action" action="blood_bank_model_action"/>
+            </menuitem>
+        </menuitem>
+    </data>
+            <!-- tree view -->
+        <record id="real_estate_list_view" model="ir.ui.view">
+            <field name="name">Blood Bank List view</field>
+            <field name="model">blood.bank</field>
+            <field name="arch" type="xml">
+                <tree string= "Blood Bank">
+                    <field name="name" optional="show"/>
+                    <field name="date" optional="show"/>
+                </tree>
+            </field>
+        </record>
+<!--         
+        <record id="blood_bank_form_view" model="ir.ui.view">
+            <field name="name">Blood bank form view</field>
+            <field name="model">blood.bank</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet> 
+                        <label for="name" string="Name" />
+                            <group>
+                                <h1><field name="name" style="width:800%"/></h1>
+                            </group>
+                        <group>
+                            <group>
+                                <field name="property_type_id"/>
+                            </group>
+                            <group>
+                                <field name="date_availability"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="expected_price"/>
+                            </group>
+                            <group>
+                                <field name="selling_price"/>
+                            </group>
+                        </group>                        
+                        <notebook>
+                            <page string="Description">
+                                    <group>
+                                        <field name="postcode"/>
+                                    </group>
+                                    <group>
+                                        <field name="bedrooms"/>
+                                    </group>
+                                    <group>
+                                        <field name="living_area"/>
+                                    </group>
+                                    <group>
+                                        <field name="facades"/>
+                                    </group>
+                            </page>                              
+                            <page string="Garden">
+                                <group>
+                                    <field name="garage"/>
+                                </group>
+                                <group>
+                                    <field name="garden"/>
+                                </group>
+                                <group>
+                                    <field name="garden_area"/>
+                                </group>
+                                <group>
+                                    <field name="garden_orientation"/>
+                                </group>
+                            </page>
+                            <page string="Other Info">
+                                <group>
+                                    <field name="buyer_id"/>
+                                </group>
+                                <group>
+                                    <field name="salesperson_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+</odoo>
