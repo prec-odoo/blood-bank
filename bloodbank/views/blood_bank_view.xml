@@ -49,55 +49,49 @@
                     <header>
                         <field name="state" widget="statusbar" options = "{'clickable' : '1'}"/>
                     </header>
-                    <sheet> 
+                    <sheet>
                         <label for="name" string="Name" />
                             <group>
                                 <h1><field name="name" style="width:800%"/></h1>
                             </group>
-                        <group>
                             <group>
-                                <field name="availability_date"/>
+                                <field name="availability_date" nolabel="1" style="width:120%"/>
                             </group>
-                            <group>
-                                <field name="gender"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group>
-                                <field name="bdate"/>
-                            </group>
-                            <group>
-                                <field name="age"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group>
-                                <field name="contact"/>
-                            </group>
-                            <group>
-                                <field name="email"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group>
-                                <field name="address"/>
-                            </group>
-                            <group>
+                            <group>>
                                 <field name="description"/>
-                            </group>
-                        </group>  
+                            </group>  
                             <!-- notebook -->
                         <notebook>
+                            <page string="Personal Details">
+                                <group>
+                                    <field name="gender"/>
+                                </group>
+                                <group>
+                                    <field name="bdate"/>
+                                </group>
+                                <group>
+                                    <field name="age"/>
+                                </group>
+                                <group>
+                                    <field name="contact"/>
+                                </group>
+                                <group>
+                                    <field name="email"/>
+                                </group>
+                                <group>
+                                    <field name="address"/>
+                                </group>
+                            </page>
                             <page string="Blood Details">
                                 <group>
                                     <field name="blood_group"/>
                                 </group>
-                                    <group>
-                                        <field name="bag_number"/>
-                                    </group>
-                                    <group>
-                                        <field name="quantity"/>
-                                    </group>
+                                <group>
+                                    <field name="bag_number"/>
+                                </group>
+                                <group>
+                                    <field name="quantity"/>
+                                </group>
                             </page>
                             <page string="Assigned Doctor">
                                 <group>
