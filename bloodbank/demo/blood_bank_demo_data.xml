@@ -3,12 +3,43 @@
     <data>
         <record model="blood.bank" id="blood_bank_model_demo" >
             <field name="name">ABC</field>
+            <field name="email">abc@gmail.com</field>
+            <field name="bag_number">0001</field>
+            <field name="contact">000000000</field>
+            <field name="doctor_info_id" ref="bloodbank.doctor_info_demo"/>
+            <field name="employee_info_id" ref="bloodbank.employee_info_demo"/>
         </record>
        <record model="blood.bank" id="blood_bank_model_demo1" >
              <field name="name">XYZ</field>
+             <field name="email">xyz@gmail.com</field>
+             <field name="bag_number">0002</field>
+             <field name="doctor_info_id" ref="bloodbank.doctor_info_demo1"/>
+             <field name="employee_info_id" ref="bloodbank.employee_info_demo1"/>
+             <field name="contact">0000000</field>
         </record>
         <record model="blood.bank" id="blood_bank_model_demo2" >
             <field name="name">PQR</field>
+            <field name="email">pqr@gmail.com</field>
+            <field name="bag_number">0003</field>
+            <field name="doctor_info_id" ref="bloodbank.doctor_info_demo"/>
+            <field name="employee_info_id" ref="bloodbank.employee_info_demo2"/>
+            <field name="contact">00000000</field>
        </record>
+       <record model="blood.bank" id="blood_bank_model_demo3" >
+            <field name="name">patient1</field>
+            <field name="email">demo@gmail.com</field>
+            <field name="bag_number">00031</field>
+            <field name="doctor_info_id" ref="bloodbank.doctor_info_demo1"/>
+            <field name="employee_info_id" ref="bloodbank.employee_info_demo1"/>
+            <field name="contact">00000000</field>
+        </record>
+        <record model="blood.bank" id="blood_bank_model_demo4" >
+            <field name="name">PQR</field>
+            <field name="email">pqr@gmail.com</field>
+            <field name="bag_number">0003</field>
+            <field name="doctor_info_id" ref="bloodbank.doctor_info_demo"/>
+            <field name="employee_info_id" ref="bloodbank.employee_info_demo2"/>
+            <field name="contact">00000000</field>
+        </record>
     </data>
 </odoo>

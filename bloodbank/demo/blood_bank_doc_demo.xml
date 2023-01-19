@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- doctor info demo data -->
+        <record model="doctor.info" id="doctor_info_demo" >
+            <field name="name">doc1</field>
+        </record>
+        <record model="doctor.info" id="doctor_info_demo1" >
+            <field name="name">doc2</field>
+        </record>
+    </data>
+</odoo>

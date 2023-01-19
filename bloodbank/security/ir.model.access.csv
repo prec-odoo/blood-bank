@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 bloodbank.access_blood_bank,access_blood_bank,bloodbank.model_blood_bank,base.group_user,1,1,1,1
 bloodbank.access_doctor_info,access_doctor_info,bloodbank.model_doctor_info,base.group_user,1,1,1,1
 bloodbank.access_employee_info,access_employee_info,bloodbank.model_employee_info,base.group_user,1,1,1,1
+bloodbank.access_blood_group,access_blood_group,bloodbank.model_blood_group,base.group_user,1,1,1,1
+bloodbank.access_medical_issue,access_medical_issue,bloodbank.model_medical_issue,base.group_user,1,1,1,1

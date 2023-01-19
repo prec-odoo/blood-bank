@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- blood group demo data -->
+        <record model="blood.group" id="blood_group_demo" >
+            <field name="name">A+</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo1" >
+            <field name="name">B+</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo2" >
+            <field name="name">O+</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo3" >
+            <field name="name">AB+</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo4" >
+            <field name="name">A-</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo5" >
+            <field name="name">B-</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo6" >
+            <field name="name">O-</field>
+        </record>
+        <record model="blood.group" id="blood_group_demo7" >
+            <field name="name">AB-</field>
+        </record>
+    </data>
+</odoo>

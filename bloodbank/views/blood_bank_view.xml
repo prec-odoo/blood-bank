@@ -1,111 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-                <!-- action -->
-        <record id="blood_bank_model_action" model="ir.actions.act_window">
-            <field name="name">Donor Details</field>
-            <field name="res_model">blood.bank</field>
-            <field name="view_mode">tree,form</field>
-        </record> 
-    </data>
             <!-- tree view -->
-        <record id="real_estate_list_view" model="ir.ui.view">
-            <field name="name">Blood Bank List view</field>
-            <field name="model">blood.bank</field>
-            <field name="arch" type="xml">
-                <tree string= "Blood Bank">
-                    <field name="name" optional="show"/>
-                    <field name="availability_date" optional="show"/>
-                </tree>
-            </field>
-        </record>
-            <!-- search, filter, group by -->
-        <record id="blood_bank_search" model="ir.ui.view">
-            <field name="name">blood.bank.search</field>
-            <field name="model">blood.bank</field>
-            <field name="arch" type="xml">
-                <search string="Blood Bank">
-                    <field name="name" string="Title" />
-                    <field name="availability_date"/>
-                    <field name="contact"/>
-                    <field name="age"/>
-                    <field name="gender"/>
-                    <field name="blood_group"/>
-                    <field name="bag_number"/>
-                    <separator/>
-                    <filter string="Available Blood" name="available" domain="['|',('state', '=', 'new'),('state', '=', 'available')]"/>
-                    <group expand="1" string="Group By">
-                        <filter string="Blood group" name="blood_group" context="{'group_by':'blood_group'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
-                <!-- form view -->
-        <record id="blood_bank_form_view" model="ir.ui.view">
-            <field name="name">Blood bank form view</field>
-            <field name="model">blood.bank</field>
-            <field name="arch" type="xml">
-                <form>
-                    <header>
-                        <field name="state" widget="statusbar" options = "{'clickable' : '1'}"/>
-                    </header>
-                    <sheet>
-                        <label for="name" string="Name" />
+    <record id="blood_bank_list_view" model="ir.ui.view">
+        <field name="name">Blood Bank List view</field>
+        <field name="model">blood.bank</field>
+        <field name="arch" type="xml">
+            <tree string= "Blood Bank">
+                <field name="name" optional="show"/>
+                <field name="availability_date" optional="show"/>
+                <field name="doctor_info_id" optional="show"/>
+                <field name="employee_info_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+        <!-- search, filter, group by -->
+    <record id="blood_bank_search" model="ir.ui.view">
+        <field name="name">blood.bank.search</field>
+        <field name="model">blood.bank</field>
+        <field name="arch" type="xml">
+            <search string="Blood Bank">
+                <field name="name" string="Title" />
+                <field name="availability_date"/>
+                <field name="contact"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <!-- <field name="blood_group_id"/> -->
+                <field name="bag_number"/>
+                <separator/>
+                <filter string="Available Blood" name="available" domain="['|',('state', '=', 'new'),('state', '=', 'available')]"/>
+                <!-- <group expand="1" string="Group By">
+                    <filter string="Blood group" name="blood_group" context="{'group_by':'blood_group'}"/>
+                </group> -->
+            </search>
+        </field>
+    </record>
+            <!-- form view -->
+    <record id="blood_bank_form_view" model="ir.ui.view">
+        <field name="name">Blood bank form view</field>
+        <field name="model">blood.bank</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="blood_donated" type="object" string="Donate" class="btn btn-primary" states='new,available,expired'/>
+                    <button name="cancel" type="object" string="Cancel" class="btn btn-secondary" states='new,available,donated'/>
+                    <field name="state" widget="statusbar" options = "{'clickable' : '1'}"/>
+                </header>
+                <sheet>
+                    <label for="name" string="Name" />
+                        <group>
+                            <h1><field name="name" style="width:800%"/></h1>
+                        </group>
+                        <group>
+                            <field name="availability_date" nolabel="1" style="width:120%"/>
+                        </group>  
+                        <!-- notebook -->
+                    <notebook>
+                        <page string="Personal Details">
                             <group>
-                                <h1><field name="name" style="width:800%"/></h1>
+                                <field name="gender" widget="radio"/>
                             </group>
                             <group>
-                                <field name="availability_date" nolabel="1" style="width:120%"/>
+                                <field name="date_of_birth"/>
                             </group>
-                            <group>>
-                                <field name="description"/>
-                            </group>  
-                            <!-- notebook -->
-                        <notebook>
-                            <page string="Personal Details">
-                                <group>
-                                    <field name="gender"/>
-                                </group>
-                                <group>
-                                    <field name="bdate"/>
-                                </group>
-                                <group>
-                                    <field name="age"/>
-                                </group>
-                                <group>
-                                    <field name="contact"/>
-                                </group>
-                                <group>
-                                    <field name="email"/>
-                                </group>
-                                <group>
-                                    <field name="address"/>
-                                </group>
-                            </page>
-                            <page string="Blood Details">
-                                <group>
-                                    <field name="blood_group"/>
-                                </group>
-                                <group>
-                                    <field name="bag_number"/>
-                                </group>
-                                <group>
-                                    <field name="quantity"/>
-                                </group>
-                            </page>
-                            <page string="Assigned Doctor">
-                                <group>
-                                    <field name="doctor_info_id"/>
-                                </group>
-                            </page>
-                            <page string="Assigned Employee">
-                                <group>
-                                    <field name="employee_info_id"/>
-                                </group>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                            <group>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="contact"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                            </group>
+                            <group>
+                                <field name="address"/>
+                            </group>
+                        </page>
+                        <page string="Blood Details">
+                            <group>
+                                <field name="blood_group_id" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="bag_number"/>
+                            </group>
+                            <group>
+                                <field name="quantity"/>
+                            </group>
+                        </page>
+                        <page string="Medical Summary">
+                            <group>
+                                <field name="doctor_info_id" options="{'no_create': True}"/>
+                                <field name="employee_info_id" options="{'no_create': True}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- code for chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
 </odoo>

@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="blood_bank_menu_root" name="Blood Bank">
+    <data>
+                    <!-- Main action -->
+        <record id="blood_bank_model_action" model="ir.actions.act_window">
+            <field name="name">Donor Details</field>
+            <field name="res_model">blood.bank</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_available":True}</field> 
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Empty!
+                </p>
+              </field>
+        </record>
+
+                    <!-- Doctor info action  -->
+        <record id="doctor_info_model_action" model="ir.actions.act_window">
+            <field name="name">Doctor Information</field>
+            <field name="res_model">doctor.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+                <!--  Employee info actions -->
+        <record id="employee_info_model_action" model="ir.actions.act_window">
+            <field name="name">Employee Information</field>
+            <field name="res_model">employee.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+                        
+                <!--  Employee info actions -->
+        <record id="blood_group_model_action" model="ir.actions.act_window">
+            <field name="name">Blood Group</field>
+            <field name="res_model">blood.group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+                <!--  Employee info actions -->
+        <record id="medical_issue_model_action" model="ir.actions.act_window">
+           <field name="name">medical Issue</field>
+           <field name="res_model">medical.issue</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+            <!-- Menus -->
+    <menuitem id="blood_bank_menu_root" web_icon="bloodbank,static/description/icon.png" name="Blood Bank">
         <menuitem id="bbank_first_level_menu" name="Home">
             <menuitem id="bbank_model_menu_action" action="blood_bank_model_action"/>
         </menuitem>
         <menuitem id="bbank_second_level_menu" name="Information">
             <menuitem id="bbank_model_menu_action2" action="doctor_info_model_action"/>
             <menuitem id="bbank_model_menu_action3" action="employee_info_model_action"/>
+            <menuitem id="bbank_model_menu_action5" action="medical_issue_model_action"/>
+        </menuitem>
+        <menuitem id="bbank_third_level_menu" name="Blood Groups">
+            <menuitem id="bbank_model_menu_action4" action="blood_group_model_action"/>
         </menuitem>
     </menuitem>   
 </odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- employee demo data -->
+        <record model="employee.info" id="employee_info_demo" >
+            <field name="name">emp1</field>
+        </record>
+        <record model="employee.info" id="employee_info_demo1" >
+             <field name="name">emp2</field>
+        </record>
+        <record model="employee.info" id="employee_info_demo2" >
+            <field name="name">emp3</field>
+        </record>
+    </data>
+</odoo>

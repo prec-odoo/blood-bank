@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
             <!-- tree view -->
-    <record id="doctor_info_list_view" model="ir.ui.view">
-        <field name="name">Doctor Info List view</field>
-        <field name="model">doctor.info</field>
+    <record id="blood_group_list_view" model="ir.ui.view">
+        <field name="name">Blood Group List view</field>
+        <field name="model">blood.group</field>
         <field name="arch" type="xml">
-            <tree string= "Doctor List">
+            <tree string= "Blood Group">
                 <field name="name" optional="show"/>
             </tree>
         </field>
     </record>
 
      <!-- form view  -->
-    <record id="doctor_info_form_view" model="ir.ui.view">
-        <field name="name">Doctor info form view</field>
-        <field name="model">doctor.info</field>
+    <record id="blood_group_form_view" model="ir.ui.view">
+        <field name="name">Blood Group form view</field>
+        <field name="model">blood.group</field>
         <field name="arch" type="xml">
             <form>
                 <sheet> 
@@ -22,12 +22,17 @@
                         <group>
                             <h1><field name="name" style="width:800%"/></h1>
                         </group>
+                        <group>
+                            <field name="num"/>
+                        </group>
                         <notebook>
-                            <page string="Patients">
+                            <page string="Patients list">
                                 <field name="patient_ids">
                                     <tree string= "Patients list">
                                         <field name="name" optional="show"/>
-                                        <field name="bag_number" optional="show"/>  
+                                        <field name="bag_number" optional="show"/>
+                                        <field name="doctor_info_id" optional="show"/>
+                                        <field name="employee_info_id" optional="show"/>  
                                     </tree>
                                 </field>
                             </page>
