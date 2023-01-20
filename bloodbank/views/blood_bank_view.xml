@@ -8,8 +8,10 @@
             <tree string= "Blood Bank">
                 <field name="name" optional="show"/>
                 <field name="availability_date" optional="show"/>
+                <field name="validity" optional="show"/>
                 <field name="doctor_info_id" optional="show"/>
                 <field name="employee_info_id" optional="show"/>
+                <field name="issue_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </tree>
         </field>
     </record>
@@ -24,13 +26,13 @@
                 <field name="contact"/>
                 <field name="age"/>
                 <field name="gender"/>
-                <!-- <field name="blood_group_id"/> -->
+                <field name="blood_group_id"/>
                 <field name="bag_number"/>
                 <separator/>
                 <filter string="Available Blood" name="available" domain="['|',('state', '=', 'new'),('state', '=', 'available')]"/>
-                <!-- <group expand="1" string="Group By">
-                    <filter string="Blood group" name="blood_group" context="{'group_by':'blood_group'}"/>
-                </group> -->
+                <group expand="1" string="Group By">
+                    <filter string="Blood group" name="blood_group" context="{'group_by':'blood_group_id'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -53,6 +55,14 @@
                         <group>
                             <field name="availability_date" nolabel="1" style="width:120%"/>
                         </group>  
+                        <group>
+                            <field name="validity"/>
+                        </group> 
+                        <!-- <group>
+                            <field name="image" widget="image" class="oe_avatar" options='{"preview_image": "image", "size": [100, 100]}'/>
+                        </group> -->
+                        <!-- to upload a image -->
+
                         <!-- notebook -->
                     <notebook>
                         <page string="Personal Details">
@@ -90,6 +100,7 @@
                             <group>
                                 <field name="doctor_info_id" options="{'no_create': True}"/>
                                 <field name="employee_info_id" options="{'no_create': True}"/>
+                                <field name="issue_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             </group>
                         </page>
                     </notebook>

@@ -16,6 +16,7 @@
         'demo/blood_bank_employee_demo.xml',
         'demo/blood_bank_demo_data.xml',
         'demo/blood_group_demo.xml',
+        'demo/medical_issue_demo.xml',
     ],
     'application' : True,
 }

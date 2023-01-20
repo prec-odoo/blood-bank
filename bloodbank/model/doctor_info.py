@@ -8,3 +8,4 @@ class DoctorInfo(models.Model):
 
     name = fields.Char('Name',required=True, tracking = True)
     patient_ids = fields.One2many('blood.bank', 'doctor_info_id', string="Patient Name")
+    

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- donor medical issue demo data -->
+        <record model="medical.issue" id="medical_issue_demo" >
+            <field name="name">Blood pressure</field>
+            <field name="color">6</field>
+        </record>
+        <record model="medical.issue" id="medical_issue_demo1" >
+             <field name="name">Diabetes</field>
+             <field name="color">4</field>
+        </record>
+        <record model="medical.issue" id="medical_issue_demo2" >
+            <field name="name">No issues</field>
+            <field name="color">7</field>
+       </record>
+    </data>
+</odoo>

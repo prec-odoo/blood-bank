@@ -7,3 +7,5 @@ class MedicalIssue(models.Model):
     _description = "Blood Bank Management System medical issues"
 
     name = fields.Char('Name',required=True)
+    color = fields.Integer()
+    
